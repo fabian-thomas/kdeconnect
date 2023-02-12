@@ -9,6 +9,16 @@ But that saves the content to a file in your home directory.
 It's nicer to have that automatically copied to the clipboard.
 This is the second modification.
 
+## Building
+
+Also check the notes [here](https://community.kde.org/KDEConnect/Build_Linux).
+``` sh
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+sudo make install
+```
+
 # KDE Connect - desktop app
 
 KDE Connect is a multi-platform app that allows your devices to communicate (eg: your phone and your computer).

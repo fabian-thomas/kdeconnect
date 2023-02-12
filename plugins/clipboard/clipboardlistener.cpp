@@ -45,13 +45,13 @@ void ClipboardListener::refreshContent(const QString &content, ClipboardListener
 ClipboardListener::ClipboardListener()
     : clipboard(KSystemClipboard::instance())
 {
-#ifdef Q_OS_MAC
-    connect(&m_clipboardMonitorTimer, &QTimer::timeout, this, [this]() {
-        updateClipboard(QClipboard::Clipboard);
-    });
-    m_clipboardMonitorTimer.start(1000); // Refresh 1s
-#endif
-    connect(clipboard, &KSystemClipboard::changed, this, &ClipboardListener::updateClipboard);
+    // #ifdef Q_OS_MAC
+    //     connect(&m_clipboardMonitorTimer, &QTimer::timeout, this, [this]() {
+    //         updateClipboard(QClipboard::Clipboard);
+    //     });
+    //     m_clipboardMonitorTimer.start(1000); // Refresh 1s
+    // #endif
+    //     connect(clipboard, &KSystemClipboard::changed, this, &ClipboardListener::updateClipboard);
 }
 
 void ClipboardListener::updateClipboard(QClipboard::Mode mode)

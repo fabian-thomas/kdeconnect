@@ -6,6 +6,9 @@
 
 #include "shareplugin.h"
 
+#include <QClipboard>
+#include <QGuiApplication>
+
 #include <QDBusConnection>
 #include <QDateTime>
 #include <QDesktopServices>
@@ -156,16 +159,20 @@ bool SharePlugin::receivePacket(const NetworkPacket &np)
             proc->write(text.toUtf8());
             proc->closeWriteChannel();
         } else {
-            QTemporaryFile tmpFile;
-            tmpFile.setFileTemplate(QStringLiteral("kdeconnect-XXXXXX.txt"));
-            tmpFile.setAutoRemove(false);
-            tmpFile.open();
-            tmpFile.write(text.toUtf8());
-            tmpFile.close();
+            // QTemporaryFile tmpFile;
+            // tmpFile.setFileTemplate(QStringLiteral("kdeconnect-XXXXXX.txt"));
+            // tmpFile.setAutoRemove(false);
+            // tmpFile.open();
+            // tmpFile.write(text.toUtf8());
+            // tmpFile.close();
 
-            const QString fileName = tmpFile.fileName();
-            Q_EMIT shareReceived(fileName);
-            QDesktopServices::openUrl(QUrl::fromLocalFile(fileName));
+            // const QString fileName = tmpFile.fileName();
+            // Q_EMIT shareReceived(fileName);
+            // QDesktopServices::openUrl(QUrl::fromLocalFile(fileName));
+
+            // just copy the content to the clipboard
+            QClipboard *clipboard = QGuiApplication::clipboard();
+            clipboard->setText(text);
         }
     } else if (np.has(QStringLiteral("url"))) {
         QUrl url = QUrl::fromEncoded(np.get<QByteArray>(QStringLiteral("url")));

@@ -1,3 +1,14 @@
+# Why?
+
+The upstream KDE Connect Linux app automatically shares clipboard contents to Android.
+This is annoying, at least with Android 13 where a popup is shown each time there is new clipboard content.
+This fork disables this automatic functionality entirely by disabling the clipboard listener.
+
+Further, if you share text from Android to the KDE Connect app you can nicely share it to Linux.
+But that saves the content to a file in your home directory.
+It's nicer to have that automatically copied to the clipboard.
+This is the second modification.
+
 # KDE Connect - desktop app
 
 KDE Connect is a multi-platform app that allows your devices to communicate (eg: your phone and your computer).

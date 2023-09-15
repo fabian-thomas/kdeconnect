@@ -1,3 +1,7 @@
+# EOL
+
+As of version 23.08.1 everything mentioned below has been fixed upstream by the KDE Connect devs, so this repo is not required anymore.
+
 # Why?
 
 The upstream KDE Connect Linux app automatically shares clipboard contents to Android.
